@@ -32,21 +32,24 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="data/PopulationEPCI_1.js"></script>
-        <script src="data/Partdesjeunes1529ans_2.js"></script>
-        <script src="data/Plusde25dejeunes1529ans_3.js"></script>
-        <script src="data/Tauxdepauvretdesjeunes25_4.js"></script>
-        <script src="data/TauxdepauvretDpartement_5.js"></script>
-        <script src="data/ESUGESS_6.js"></script>
-        <script src="data/ESANDES_7.js"></script>
-        <script src="data/ESpartenairesBA_8.js"></script>
-        <script src="data/EStudiantespartenairesBA_9.js"></script>
-        <script src="data/AntennesdesBanquesAlimentaires_10.js"></script>
-        <script src="data/BanquesAlimentaires_11.js"></script>
-        <script src="data/Rgions_12.js"></script>
+        <script src="data/PartdesjeunesRunion_2.js"></script>
+        <script src="data/PartdesjeunesMartinique_3.js"></script>
+        <script src="data/PartdesjeunesGuadeloupe_4.js"></script>
+        <script src="data/Partdesjeunes1529ans_5.js"></script>
+        <script src="data/Plusde25dejeunes1529ans_6.js"></script>
+        <script src="data/Tauxdepauvretdesjeunes25_7.js"></script>
+        <script src="data/TauxdepauvretDpartement_8.js"></script>
+        <script src="data/ESUGESS_9.js"></script>
+        <script src="data/ESANDES_10.js"></script>
+        <script src="data/ESpartenairesBA_11.js"></script>
+        <script src="data/EStudiantespartenairesBA_12.js"></script>
+        <script src="data/AntennesdesBanquesAlimentaires_13.js"></script>
+        <script src="data/BanquesAlimentaires_14.js"></script>
+        <script src="data/Rgions_15.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[42.02739350566075,-8.971657269570171],[51.19148008285835,14.763196951051244]]);
+        }).fitBounds([[42.25168808765577,-8.136711904628019],[51.08369889280351,14.685122386589184]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -177,7 +180,190 @@
             style: style_PopulationEPCI_1_0,
         });
         bounds_group.addLayer(layer_PopulationEPCI_1);
-        function pop_Partdesjeunes1529ans_2(feature, layer) {
+        function pop_PartdesjeunesRunion_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Département</strong><br />' + (feature.properties['NOM_DEPT'] !== null ? autolinker.link(feature.properties['NOM_DEPT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>EPCI</strong><br />' + (feature.properties['COMPLET'] !== null ? autolinker.link(feature.properties['COMPLET'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Taux de pauvreté en % (2020)</strong><br />' + (feature.properties['Taux de pa'] !== null ? autolinker.link(feature.properties['Taux de pa'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Part des 15-29 ans en % (2020)</strong><br />' + (feature.properties['Part des 1'] !== null ? autolinker.link(feature.properties['Part des 1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Taux de pauvreté des jeunes en % (- 30 ans)</strong><br />' + (feature.properties['Taux de _1'] !== null ? autolinker.link(feature.properties['Taux de _1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PartdesjeunesRunion_2_0(feature) {
+            if (feature.properties['Part des 1'] >= 15.900000 && feature.properties['Part des 1'] <= 36.200000 ) {
+                return {
+                pane: 'pane_PartdesjeunesRunion_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(152,0,67,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_PartdesjeunesRunion_2');
+        map.getPane('pane_PartdesjeunesRunion_2').style.zIndex = 402;
+        map.getPane('pane_PartdesjeunesRunion_2').style['mix-blend-mode'] = 'normal';
+        var layer_PartdesjeunesRunion_2 = new L.geoJson(json_PartdesjeunesRunion_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PartdesjeunesRunion_2',
+            layerName: 'layer_PartdesjeunesRunion_2',
+            pane: 'pane_PartdesjeunesRunion_2',
+            onEachFeature: pop_PartdesjeunesRunion_2,
+            style: style_PartdesjeunesRunion_2_0,
+        });
+        bounds_group.addLayer(layer_PartdesjeunesRunion_2);
+        function pop_PartdesjeunesMartinique_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Département</strong><br />' + (feature.properties['NOM_DEPT'] !== null ? autolinker.link(feature.properties['NOM_DEPT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>EPCI</strong><br />' + (feature.properties['COMPLET'] !== null ? autolinker.link(feature.properties['COMPLET'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Taux de pauvreté en % (2020)</strong><br />' + (feature.properties['Taux de pa'] !== null ? autolinker.link(feature.properties['Taux de pa'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Part des 15-29 ans en % (2020)</strong><br />' + (feature.properties['Part des 1'] !== null ? autolinker.link(feature.properties['Part des 1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Taux de pauvreté des jeunes en % (- 30 ans)</strong><br />' + (feature.properties['Taux de _1'] !== null ? autolinker.link(feature.properties['Taux de _1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PartdesjeunesMartinique_3_0(feature) {
+            if (feature.properties['Part des 1'] >= 14.600000 && feature.properties['Part des 1'] <= 15.900000 ) {
+                return {
+                pane: 'pane_PartdesjeunesMartinique_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(221,28,119,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Part des 1'] >= 15.900000 && feature.properties['Part des 1'] <= 36.200000 ) {
+                return {
+                pane: 'pane_PartdesjeunesMartinique_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(152,0,67,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_PartdesjeunesMartinique_3');
+        map.getPane('pane_PartdesjeunesMartinique_3').style.zIndex = 403;
+        map.getPane('pane_PartdesjeunesMartinique_3').style['mix-blend-mode'] = 'normal';
+        var layer_PartdesjeunesMartinique_3 = new L.geoJson(json_PartdesjeunesMartinique_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PartdesjeunesMartinique_3',
+            layerName: 'layer_PartdesjeunesMartinique_3',
+            pane: 'pane_PartdesjeunesMartinique_3',
+            onEachFeature: pop_PartdesjeunesMartinique_3,
+            style: style_PartdesjeunesMartinique_3_0,
+        });
+        bounds_group.addLayer(layer_PartdesjeunesMartinique_3);
+        function pop_PartdesjeunesGuadeloupe_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Département</strong><br />' + (feature.properties['NOM_DEPT'] !== null ? autolinker.link(feature.properties['NOM_DEPT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>EPCI</strong><br />' + (feature.properties['COMPLET'] !== null ? autolinker.link(feature.properties['COMPLET'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Taux de pauvreté en % (2020)</strong><br />' + (feature.properties['Taux de pa'] !== null ? autolinker.link(feature.properties['Taux de pa'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Part des 15-29 ans en % (2020)</strong><br />' + (feature.properties['Part des 1'] !== null ? autolinker.link(feature.properties['Part des 1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Taux de pauvreté des jeunes en % (- 30 ans)</strong><br />' + (feature.properties['Taux de _1'] !== null ? autolinker.link(feature.properties['Taux de _1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PartdesjeunesGuadeloupe_4_0(feature) {
+            if (feature.properties['Part des 1'] >= 14.600000 && feature.properties['Part des 1'] <= 15.900000 ) {
+                return {
+                pane: 'pane_PartdesjeunesGuadeloupe_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(221,28,119,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Part des 1'] >= 15.900000 && feature.properties['Part des 1'] <= 36.200000 ) {
+                return {
+                pane: 'pane_PartdesjeunesGuadeloupe_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(152,0,67,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_PartdesjeunesGuadeloupe_4');
+        map.getPane('pane_PartdesjeunesGuadeloupe_4').style.zIndex = 404;
+        map.getPane('pane_PartdesjeunesGuadeloupe_4').style['mix-blend-mode'] = 'normal';
+        var layer_PartdesjeunesGuadeloupe_4 = new L.geoJson(json_PartdesjeunesGuadeloupe_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PartdesjeunesGuadeloupe_4',
+            layerName: 'layer_PartdesjeunesGuadeloupe_4',
+            pane: 'pane_PartdesjeunesGuadeloupe_4',
+            onEachFeature: pop_PartdesjeunesGuadeloupe_4,
+            style: style_PartdesjeunesGuadeloupe_4_0,
+        });
+        bounds_group.addLayer(layer_PartdesjeunesGuadeloupe_4);
+        function pop_Partdesjeunes1529ans_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>DEPARTMENT</strong><br />' + (feature.properties['NOM_DEPT'] !== null ? autolinker.link(feature.properties['NOM_DEPT'].toLocaleString()) : '') + '</td>\
@@ -198,10 +384,10 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Partdesjeunes1529ans_2_0(feature) {
+        function style_Partdesjeunes1529ans_5_0(feature) {
             if (feature.properties['Part des 1'] >= 8.900000 && feature.properties['Part des 1'] <= 12.200000 ) {
                 return {
-                pane: 'pane_Partdesjeunes1529ans_2',
+                pane: 'pane_Partdesjeunes1529ans_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -216,7 +402,7 @@
             }
             if (feature.properties['Part des 1'] >= 12.200000 && feature.properties['Part des 1'] <= 13.500000 ) {
                 return {
-                pane: 'pane_Partdesjeunes1529ans_2',
+                pane: 'pane_Partdesjeunes1529ans_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -231,7 +417,7 @@
             }
             if (feature.properties['Part des 1'] >= 13.500000 && feature.properties['Part des 1'] <= 14.600000 ) {
                 return {
-                pane: 'pane_Partdesjeunes1529ans_2',
+                pane: 'pane_Partdesjeunes1529ans_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -246,7 +432,7 @@
             }
             if (feature.properties['Part des 1'] >= 14.600000 && feature.properties['Part des 1'] <= 15.900000 ) {
                 return {
-                pane: 'pane_Partdesjeunes1529ans_2',
+                pane: 'pane_Partdesjeunes1529ans_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -261,7 +447,7 @@
             }
             if (feature.properties['Part des 1'] >= 15.900000 && feature.properties['Part des 1'] <= 36.200000 ) {
                 return {
-                pane: 'pane_Partdesjeunes1529ans_2',
+                pane: 'pane_Partdesjeunes1529ans_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -275,20 +461,20 @@
             }
             }
         }
-        map.createPane('pane_Partdesjeunes1529ans_2');
-        map.getPane('pane_Partdesjeunes1529ans_2').style.zIndex = 402;
-        map.getPane('pane_Partdesjeunes1529ans_2').style['mix-blend-mode'] = 'normal';
-        var layer_Partdesjeunes1529ans_2 = new L.geoJson(json_Partdesjeunes1529ans_2, {
+        map.createPane('pane_Partdesjeunes1529ans_5');
+        map.getPane('pane_Partdesjeunes1529ans_5').style.zIndex = 405;
+        map.getPane('pane_Partdesjeunes1529ans_5').style['mix-blend-mode'] = 'normal';
+        var layer_Partdesjeunes1529ans_5 = new L.geoJson(json_Partdesjeunes1529ans_5, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Partdesjeunes1529ans_2',
-            layerName: 'layer_Partdesjeunes1529ans_2',
-            pane: 'pane_Partdesjeunes1529ans_2',
-            onEachFeature: pop_Partdesjeunes1529ans_2,
-            style: style_Partdesjeunes1529ans_2_0,
+            dataVar: 'json_Partdesjeunes1529ans_5',
+            layerName: 'layer_Partdesjeunes1529ans_5',
+            pane: 'pane_Partdesjeunes1529ans_5',
+            onEachFeature: pop_Partdesjeunes1529ans_5,
+            style: style_Partdesjeunes1529ans_5_0,
         });
-        bounds_group.addLayer(layer_Partdesjeunes1529ans_2);
-        function pop_Plusde25dejeunes1529ans_3(feature, layer) {
+        bounds_group.addLayer(layer_Partdesjeunes1529ans_5);
+        function pop_Plusde25dejeunes1529ans_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>DEPARTMENT</strong><br />' + (feature.properties['NOM_DEPT'] !== null ? autolinker.link(feature.properties['NOM_DEPT'].toLocaleString()) : '') + '</td>\
@@ -309,9 +495,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Plusde25dejeunes1529ans_3_0() {
+        function style_Plusde25dejeunes1529ans_6_0() {
             return {
-                pane: 'pane_Plusde25dejeunes1529ans_3',
+                pane: 'pane_Plusde25dejeunes1529ans_6',
                 opacity: 1,
                 color: 'rgba(228,26,28,1.0)',
                 dashArray: '',
@@ -322,20 +508,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Plusde25dejeunes1529ans_3');
-        map.getPane('pane_Plusde25dejeunes1529ans_3').style.zIndex = 403;
-        map.getPane('pane_Plusde25dejeunes1529ans_3').style['mix-blend-mode'] = 'normal';
-        var layer_Plusde25dejeunes1529ans_3 = new L.geoJson(json_Plusde25dejeunes1529ans_3, {
+        map.createPane('pane_Plusde25dejeunes1529ans_6');
+        map.getPane('pane_Plusde25dejeunes1529ans_6').style.zIndex = 406;
+        map.getPane('pane_Plusde25dejeunes1529ans_6').style['mix-blend-mode'] = 'normal';
+        var layer_Plusde25dejeunes1529ans_6 = new L.geoJson(json_Plusde25dejeunes1529ans_6, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Plusde25dejeunes1529ans_3',
-            layerName: 'layer_Plusde25dejeunes1529ans_3',
-            pane: 'pane_Plusde25dejeunes1529ans_3',
-            onEachFeature: pop_Plusde25dejeunes1529ans_3,
-            style: style_Plusde25dejeunes1529ans_3_0,
+            dataVar: 'json_Plusde25dejeunes1529ans_6',
+            layerName: 'layer_Plusde25dejeunes1529ans_6',
+            pane: 'pane_Plusde25dejeunes1529ans_6',
+            onEachFeature: pop_Plusde25dejeunes1529ans_6,
+            style: style_Plusde25dejeunes1529ans_6_0,
         });
-        bounds_group.addLayer(layer_Plusde25dejeunes1529ans_3);
-        function pop_Tauxdepauvretdesjeunes25_4(feature, layer) {
+        bounds_group.addLayer(layer_Plusde25dejeunes1529ans_6);
+        function pop_Tauxdepauvretdesjeunes25_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Région</strong><br />' + (feature.properties['NOM_REGION'] !== null ? autolinker.link(feature.properties['NOM_REGION'].toLocaleString()) : '') + '</td>\
@@ -353,9 +539,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Tauxdepauvretdesjeunes25_4_0() {
+        function style_Tauxdepauvretdesjeunes25_7_0() {
             return {
-                pane: 'pane_Tauxdepauvretdesjeunes25_4',
+                pane: 'pane_Tauxdepauvretdesjeunes25_7',
                 opacity: 1,
                 color: 'rgba(70,8,73,1.0)',
                 dashArray: '',
@@ -368,20 +554,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Tauxdepauvretdesjeunes25_4');
-        map.getPane('pane_Tauxdepauvretdesjeunes25_4').style.zIndex = 404;
-        map.getPane('pane_Tauxdepauvretdesjeunes25_4').style['mix-blend-mode'] = 'normal';
-        var layer_Tauxdepauvretdesjeunes25_4 = new L.geoJson(json_Tauxdepauvretdesjeunes25_4, {
+        map.createPane('pane_Tauxdepauvretdesjeunes25_7');
+        map.getPane('pane_Tauxdepauvretdesjeunes25_7').style.zIndex = 407;
+        map.getPane('pane_Tauxdepauvretdesjeunes25_7').style['mix-blend-mode'] = 'normal';
+        var layer_Tauxdepauvretdesjeunes25_7 = new L.geoJson(json_Tauxdepauvretdesjeunes25_7, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Tauxdepauvretdesjeunes25_4',
-            layerName: 'layer_Tauxdepauvretdesjeunes25_4',
-            pane: 'pane_Tauxdepauvretdesjeunes25_4',
-            onEachFeature: pop_Tauxdepauvretdesjeunes25_4,
-            style: style_Tauxdepauvretdesjeunes25_4_0,
+            dataVar: 'json_Tauxdepauvretdesjeunes25_7',
+            layerName: 'layer_Tauxdepauvretdesjeunes25_7',
+            pane: 'pane_Tauxdepauvretdesjeunes25_7',
+            onEachFeature: pop_Tauxdepauvretdesjeunes25_7,
+            style: style_Tauxdepauvretdesjeunes25_7_0,
         });
-        bounds_group.addLayer(layer_Tauxdepauvretdesjeunes25_4);
-        function pop_TauxdepauvretDpartement_5(feature, layer) {
+        bounds_group.addLayer(layer_Tauxdepauvretdesjeunes25_7);
+        function pop_TauxdepauvretDpartement_8(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Département </strong><br />' + (feature.properties['libgeo'] !== null ? autolinker.link(feature.properties['libgeo'].toLocaleString()) : '') + '</td>\
@@ -393,10 +579,10 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_TauxdepauvretDpartement_5_0(feature) {
+        function style_TauxdepauvretDpartement_8_0(feature) {
             if (feature.properties['Taux de pa'] >= 8.900000 && feature.properties['Taux de pa'] <= 11.900000 ) {
                 return {
-                pane: 'pane_TauxdepauvretDpartement_5',
+                pane: 'pane_TauxdepauvretDpartement_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.9)',
                 dashArray: '',
@@ -411,7 +597,7 @@
             }
             if (feature.properties['Taux de pa'] >= 11.900000 && feature.properties['Taux de pa'] <= 13.200000 ) {
                 return {
-                pane: 'pane_TauxdepauvretDpartement_5',
+                pane: 'pane_TauxdepauvretDpartement_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.9)',
                 dashArray: '',
@@ -426,7 +612,7 @@
             }
             if (feature.properties['Taux de pa'] >= 13.200000 && feature.properties['Taux de pa'] <= 14.900000 ) {
                 return {
-                pane: 'pane_TauxdepauvretDpartement_5',
+                pane: 'pane_TauxdepauvretDpartement_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.9)',
                 dashArray: '',
@@ -441,7 +627,7 @@
             }
             if (feature.properties['Taux de pa'] >= 14.900000 && feature.properties['Taux de pa'] <= 16.600000 ) {
                 return {
-                pane: 'pane_TauxdepauvretDpartement_5',
+                pane: 'pane_TauxdepauvretDpartement_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.9)',
                 dashArray: '',
@@ -456,7 +642,7 @@
             }
             if (feature.properties['Taux de pa'] >= 16.600000 && feature.properties['Taux de pa'] <= 35.600000 ) {
                 return {
-                pane: 'pane_TauxdepauvretDpartement_5',
+                pane: 'pane_TauxdepauvretDpartement_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.9)',
                 dashArray: '',
@@ -470,20 +656,20 @@
             }
             }
         }
-        map.createPane('pane_TauxdepauvretDpartement_5');
-        map.getPane('pane_TauxdepauvretDpartement_5').style.zIndex = 405;
-        map.getPane('pane_TauxdepauvretDpartement_5').style['mix-blend-mode'] = 'normal';
-        var layer_TauxdepauvretDpartement_5 = new L.geoJson(json_TauxdepauvretDpartement_5, {
+        map.createPane('pane_TauxdepauvretDpartement_8');
+        map.getPane('pane_TauxdepauvretDpartement_8').style.zIndex = 408;
+        map.getPane('pane_TauxdepauvretDpartement_8').style['mix-blend-mode'] = 'normal';
+        var layer_TauxdepauvretDpartement_8 = new L.geoJson(json_TauxdepauvretDpartement_8, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_TauxdepauvretDpartement_5',
-            layerName: 'layer_TauxdepauvretDpartement_5',
-            pane: 'pane_TauxdepauvretDpartement_5',
-            onEachFeature: pop_TauxdepauvretDpartement_5,
-            style: style_TauxdepauvretDpartement_5_0,
+            dataVar: 'json_TauxdepauvretDpartement_8',
+            layerName: 'layer_TauxdepauvretDpartement_8',
+            pane: 'pane_TauxdepauvretDpartement_8',
+            onEachFeature: pop_TauxdepauvretDpartement_8,
+            style: style_TauxdepauvretDpartement_8_0,
         });
-        bounds_group.addLayer(layer_TauxdepauvretDpartement_5);
-        function pop_ESUGESS_6(feature, layer) {
+        bounds_group.addLayer(layer_TauxdepauvretDpartement_8);
+        function pop_ESUGESS_9(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Association</strong><br />' + (feature.properties['Associatio'] !== null ? autolinker.link(feature.properties['Associatio'].toLocaleString()) : '') + '</td>\
@@ -495,9 +681,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_ESUGESS_6_0() {
+        function style_ESUGESS_9_0() {
             return {
-                pane: 'pane_ESUGESS_6',
+                pane: 'pane_ESUGESS_9',
                 shape: 'square',
                 radius: 5.0,
                 opacity: 1,
@@ -512,27 +698,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_ESUGESS_6');
-        map.getPane('pane_ESUGESS_6').style.zIndex = 406;
-        map.getPane('pane_ESUGESS_6').style['mix-blend-mode'] = 'normal';
-        var layer_ESUGESS_6 = new L.geoJson(json_ESUGESS_6, {
+        map.createPane('pane_ESUGESS_9');
+        map.getPane('pane_ESUGESS_9').style.zIndex = 409;
+        map.getPane('pane_ESUGESS_9').style['mix-blend-mode'] = 'normal';
+        var layer_ESUGESS_9 = new L.geoJson(json_ESUGESS_9, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ESUGESS_6',
-            layerName: 'layer_ESUGESS_6',
-            pane: 'pane_ESUGESS_6',
-            onEachFeature: pop_ESUGESS_6,
+            dataVar: 'json_ESUGESS_9',
+            layerName: 'layer_ESUGESS_9',
+            pane: 'pane_ESUGESS_9',
+            onEachFeature: pop_ESUGESS_9,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_ESUGESS_6_0(feature));
+                return L.shapeMarker(latlng, style_ESUGESS_9_0(feature));
             },
         });
-        bounds_group.addLayer(layer_ESUGESS_6);
-        map.addLayer(layer_ESUGESS_6);
-        function pop_ESANDES_7(feature, layer) {
+        bounds_group.addLayer(layer_ESUGESS_9);
+        map.addLayer(layer_ESUGESS_9);
+        function pop_ESANDES_10(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['address'] !== null ? autolinker.link(feature.properties['address'].toLocaleString()) : '') + '</td>\
@@ -553,9 +739,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_ESANDES_7_0() {
+        function style_ESANDES_10_0() {
             return {
-                pane: 'pane_ESANDES_7',
+                pane: 'pane_ESANDES_10',
                 shape: 'square',
                 radius: 5.0,
                 opacity: 1,
@@ -570,27 +756,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_ESANDES_7');
-        map.getPane('pane_ESANDES_7').style.zIndex = 407;
-        map.getPane('pane_ESANDES_7').style['mix-blend-mode'] = 'normal';
-        var layer_ESANDES_7 = new L.geoJson(json_ESANDES_7, {
+        map.createPane('pane_ESANDES_10');
+        map.getPane('pane_ESANDES_10').style.zIndex = 410;
+        map.getPane('pane_ESANDES_10').style['mix-blend-mode'] = 'normal';
+        var layer_ESANDES_10 = new L.geoJson(json_ESANDES_10, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ESANDES_7',
-            layerName: 'layer_ESANDES_7',
-            pane: 'pane_ESANDES_7',
-            onEachFeature: pop_ESANDES_7,
+            dataVar: 'json_ESANDES_10',
+            layerName: 'layer_ESANDES_10',
+            pane: 'pane_ESANDES_10',
+            onEachFeature: pop_ESANDES_10,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_ESANDES_7_0(feature));
+                return L.shapeMarker(latlng, style_ESANDES_10_0(feature));
             },
         });
-        bounds_group.addLayer(layer_ESANDES_7);
-        map.addLayer(layer_ESANDES_7);
-        function pop_ESpartenairesBA_8(feature, layer) {
+        bounds_group.addLayer(layer_ESANDES_10);
+        map.addLayer(layer_ESANDES_10);
+        function pop_ESpartenairesBA_11(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>BA</strong><br />' + (feature.properties['BA'] !== null ? autolinker.link(feature.properties['BA'].toLocaleString()) : '') + '</td>\
@@ -632,9 +818,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_ESpartenairesBA_8_0() {
+        function style_ESpartenairesBA_11_0() {
             return {
-                pane: 'pane_ESpartenairesBA_8',
+                pane: 'pane_ESpartenairesBA_11',
                 radius: 4.6,
                 opacity: 1,
                 color: 'rgba(11,4,5,1.0)',
@@ -648,27 +834,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_ESpartenairesBA_8');
-        map.getPane('pane_ESpartenairesBA_8').style.zIndex = 408;
-        map.getPane('pane_ESpartenairesBA_8').style['mix-blend-mode'] = 'normal';
-        var layer_ESpartenairesBA_8 = new L.geoJson(json_ESpartenairesBA_8, {
+        map.createPane('pane_ESpartenairesBA_11');
+        map.getPane('pane_ESpartenairesBA_11').style.zIndex = 411;
+        map.getPane('pane_ESpartenairesBA_11').style['mix-blend-mode'] = 'normal';
+        var layer_ESpartenairesBA_11 = new L.geoJson(json_ESpartenairesBA_11, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ESpartenairesBA_8',
-            layerName: 'layer_ESpartenairesBA_8',
-            pane: 'pane_ESpartenairesBA_8',
-            onEachFeature: pop_ESpartenairesBA_8,
+            dataVar: 'json_ESpartenairesBA_11',
+            layerName: 'layer_ESpartenairesBA_11',
+            pane: 'pane_ESpartenairesBA_11',
+            onEachFeature: pop_ESpartenairesBA_11,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_ESpartenairesBA_8_0(feature));
+                return L.circleMarker(latlng, style_ESpartenairesBA_11_0(feature));
             },
         });
-        bounds_group.addLayer(layer_ESpartenairesBA_8);
-        map.addLayer(layer_ESpartenairesBA_8);
-        function pop_EStudiantespartenairesBA_9(feature, layer) {
+        bounds_group.addLayer(layer_ESpartenairesBA_11);
+        map.addLayer(layer_ESpartenairesBA_11);
+        function pop_EStudiantespartenairesBA_12(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>BA</strong><br />' + (feature.properties['BA'] !== null ? autolinker.link(feature.properties['BA'].toLocaleString()) : '') + '</td>\
@@ -707,11 +893,11 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_EStudiantespartenairesBA_9_0(feature) {
+        function style_EStudiantespartenairesBA_12_0(feature) {
             switch(String(feature.properties['Type'])) {
                 case 'ESOPE':
                     return {
-                pane: 'pane_EStudiantespartenairesBA_9',
+                pane: 'pane_EStudiantespartenairesBA_12',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(11,4,5,1.0)',
@@ -727,7 +913,7 @@
                     break;
                 case 'AGORAE':
                     return {
-                pane: 'pane_EStudiantespartenairesBA_9',
+                pane: 'pane_EStudiantespartenairesBA_12',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(11,4,5,1.0)',
@@ -743,7 +929,7 @@
                     break;
                 case 'Autre ES':
                     return {
-                pane: 'pane_EStudiantespartenairesBA_9',
+                pane: 'pane_EStudiantespartenairesBA_12',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(11,4,5,1.0)',
@@ -759,27 +945,27 @@
                     break;
             }
         }
-        map.createPane('pane_EStudiantespartenairesBA_9');
-        map.getPane('pane_EStudiantespartenairesBA_9').style.zIndex = 409;
-        map.getPane('pane_EStudiantespartenairesBA_9').style['mix-blend-mode'] = 'normal';
-        var layer_EStudiantespartenairesBA_9 = new L.geoJson(json_EStudiantespartenairesBA_9, {
+        map.createPane('pane_EStudiantespartenairesBA_12');
+        map.getPane('pane_EStudiantespartenairesBA_12').style.zIndex = 412;
+        map.getPane('pane_EStudiantespartenairesBA_12').style['mix-blend-mode'] = 'normal';
+        var layer_EStudiantespartenairesBA_12 = new L.geoJson(json_EStudiantespartenairesBA_12, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_EStudiantespartenairesBA_9',
-            layerName: 'layer_EStudiantespartenairesBA_9',
-            pane: 'pane_EStudiantespartenairesBA_9',
-            onEachFeature: pop_EStudiantespartenairesBA_9,
+            dataVar: 'json_EStudiantespartenairesBA_12',
+            layerName: 'layer_EStudiantespartenairesBA_12',
+            pane: 'pane_EStudiantespartenairesBA_12',
+            onEachFeature: pop_EStudiantespartenairesBA_12,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_EStudiantespartenairesBA_9_0(feature));
+                return L.circleMarker(latlng, style_EStudiantespartenairesBA_12_0(feature));
             },
         });
-        bounds_group.addLayer(layer_EStudiantespartenairesBA_9);
-        map.addLayer(layer_EStudiantespartenairesBA_9);
-        function pop_AntennesdesBanquesAlimentaires_10(feature, layer) {
+        bounds_group.addLayer(layer_EStudiantespartenairesBA_12);
+        map.addLayer(layer_EStudiantespartenairesBA_12);
+        function pop_AntennesdesBanquesAlimentaires_13(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Région</strong><br />' + (feature.properties['REGION'] !== null ? autolinker.link(feature.properties['REGION'].toLocaleString()) : '') + '</td>\
@@ -797,9 +983,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_AntennesdesBanquesAlimentaires_10_0() {
+        function style_AntennesdesBanquesAlimentaires_13_0() {
             return {
-                pane: 'pane_AntennesdesBanquesAlimentaires_10',
+                pane: 'pane_AntennesdesBanquesAlimentaires_13',
                 shape: 'square',
                 radius: 5.2,
                 opacity: 1,
@@ -814,26 +1000,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_AntennesdesBanquesAlimentaires_10');
-        map.getPane('pane_AntennesdesBanquesAlimentaires_10').style.zIndex = 410;
-        map.getPane('pane_AntennesdesBanquesAlimentaires_10').style['mix-blend-mode'] = 'normal';
-        var layer_AntennesdesBanquesAlimentaires_10 = new L.geoJson(json_AntennesdesBanquesAlimentaires_10, {
+        map.createPane('pane_AntennesdesBanquesAlimentaires_13');
+        map.getPane('pane_AntennesdesBanquesAlimentaires_13').style.zIndex = 413;
+        map.getPane('pane_AntennesdesBanquesAlimentaires_13').style['mix-blend-mode'] = 'normal';
+        var layer_AntennesdesBanquesAlimentaires_13 = new L.geoJson(json_AntennesdesBanquesAlimentaires_13, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_AntennesdesBanquesAlimentaires_10',
-            layerName: 'layer_AntennesdesBanquesAlimentaires_10',
-            pane: 'pane_AntennesdesBanquesAlimentaires_10',
-            onEachFeature: pop_AntennesdesBanquesAlimentaires_10,
+            dataVar: 'json_AntennesdesBanquesAlimentaires_13',
+            layerName: 'layer_AntennesdesBanquesAlimentaires_13',
+            pane: 'pane_AntennesdesBanquesAlimentaires_13',
+            onEachFeature: pop_AntennesdesBanquesAlimentaires_13,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_AntennesdesBanquesAlimentaires_10_0(feature));
+                return L.shapeMarker(latlng, style_AntennesdesBanquesAlimentaires_13_0(feature));
             },
         });
-        bounds_group.addLayer(layer_AntennesdesBanquesAlimentaires_10);
-        function pop_BanquesAlimentaires_11(feature, layer) {
+        bounds_group.addLayer(layer_AntennesdesBanquesAlimentaires_13);
+        function pop_BanquesAlimentaires_14(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Région</strong><br />' + (feature.properties['REGION'] !== null ? autolinker.link(feature.properties['REGION'].toLocaleString()) : '') + '</td>\
@@ -854,9 +1040,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_BanquesAlimentaires_11_0() {
+        function style_BanquesAlimentaires_14_0() {
             return {
-                pane: 'pane_BanquesAlimentaires_11',
+                pane: 'pane_BanquesAlimentaires_14',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
@@ -866,26 +1052,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_BanquesAlimentaires_11');
-        map.getPane('pane_BanquesAlimentaires_11').style.zIndex = 411;
-        map.getPane('pane_BanquesAlimentaires_11').style['mix-blend-mode'] = 'normal';
-        var layer_BanquesAlimentaires_11 = new L.geoJson(json_BanquesAlimentaires_11, {
+        map.createPane('pane_BanquesAlimentaires_14');
+        map.getPane('pane_BanquesAlimentaires_14').style.zIndex = 414;
+        map.getPane('pane_BanquesAlimentaires_14').style['mix-blend-mode'] = 'normal';
+        var layer_BanquesAlimentaires_14 = new L.geoJson(json_BanquesAlimentaires_14, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_BanquesAlimentaires_11',
-            layerName: 'layer_BanquesAlimentaires_11',
-            pane: 'pane_BanquesAlimentaires_11',
-            onEachFeature: pop_BanquesAlimentaires_11,
+            dataVar: 'json_BanquesAlimentaires_14',
+            layerName: 'layer_BanquesAlimentaires_14',
+            pane: 'pane_BanquesAlimentaires_14',
+            onEachFeature: pop_BanquesAlimentaires_14,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_BanquesAlimentaires_11_0(feature));
+                return L.marker(latlng, style_BanquesAlimentaires_14_0(feature));
             },
         });
-        bounds_group.addLayer(layer_BanquesAlimentaires_11);
-        function pop_Rgions_12(feature, layer) {
+        bounds_group.addLayer(layer_BanquesAlimentaires_14);
+        function pop_Rgions_15(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
@@ -900,9 +1086,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Rgions_12_0() {
+        function style_Rgions_15_0() {
             return {
-                pane: 'pane_Rgions_12',
+                pane: 'pane_Rgions_15',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -915,32 +1101,32 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_Rgions_12');
-        map.getPane('pane_Rgions_12').style.zIndex = 412;
-        map.getPane('pane_Rgions_12').style['mix-blend-mode'] = 'normal';
-        var layer_Rgions_12 = new L.geoJson(json_Rgions_12, {
+        map.createPane('pane_Rgions_15');
+        map.getPane('pane_Rgions_15').style.zIndex = 415;
+        map.getPane('pane_Rgions_15').style['mix-blend-mode'] = 'normal';
+        var layer_Rgions_15 = new L.geoJson(json_Rgions_15, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_Rgions_12',
-            layerName: 'layer_Rgions_12',
-            pane: 'pane_Rgions_12',
-            onEachFeature: pop_Rgions_12,
-            style: style_Rgions_12_0,
+            dataVar: 'json_Rgions_15',
+            layerName: 'layer_Rgions_15',
+            pane: 'pane_Rgions_15',
+            onEachFeature: pop_Rgions_15,
+            style: style_Rgions_15_0,
         });
-        bounds_group.addLayer(layer_Rgions_12);
-        map.addLayer(layer_Rgions_12);
+        bounds_group.addLayer(layer_Rgions_15);
+        map.addLayer(layer_Rgions_15);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Rgions_12.png" /> Régions': layer_Rgions_12,'<img src="legend/BanquesAlimentaires_11.png" /> Banques Alimentaires': layer_BanquesAlimentaires_11,'<img src="legend/AntennesdesBanquesAlimentaires_10.png" /> Antennes des Banques Alimentaires': layer_AntennesdesBanquesAlimentaires_10,'ES étudiantes partenaires BA<br /><table><tr><td style="text-align: center;"><img src="legend/EStudiantespartenairesBA_9_ESOPE0.png" /></td><td>ESOPE</td></tr><tr><td style="text-align: center;"><img src="legend/EStudiantespartenairesBA_9_AGORAE1.png" /></td><td>AGORAE</td></tr><tr><td style="text-align: center;"><img src="legend/EStudiantespartenairesBA_9_AutreES2.png" /></td><td>Autre ES</td></tr></table>': layer_EStudiantespartenairesBA_9,'<img src="legend/ESpartenairesBA_8.png" /> ES partenaires BA ': layer_ESpartenairesBA_8,'<img src="legend/ESANDES_7.png" /> ES ANDES': layer_ESANDES_7,'<img src="legend/ESUGESS_6.png" /> ES UGESS': layer_ESUGESS_6,'Taux de pauvreté (Département)<br /><table><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_5_891190.png" /></td><td>8,9 - 11,9</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_5_1191321.png" /></td><td>11,9 - 13,2</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_5_1321492.png" /></td><td>13,2 - 14,9</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_5_1491663.png" /></td><td>14,9 - 16,6</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_5_1663564.png" /></td><td>16,6 - 35,6</td></tr></table>': layer_TauxdepauvretDpartement_5,'<img src="legend/Tauxdepauvretdesjeunes25_4.png" /> Taux de pauvreté des jeunes > 25%': layer_Tauxdepauvretdesjeunes25_4,'<img src="legend/Plusde25dejeunes1529ans_3.png" /> Plus de 25 % de jeunes (15-29 ans)': layer_Plusde25dejeunes1529ans_3,'Part des jeunes 15-29 ans <br /><table><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_2_891220.png" /></td><td>8,9 - 12,2</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_2_1221351.png" /></td><td>12,2 - 13,5</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_2_1351462.png" /></td><td>13,5 - 14,6</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_2_1461593.png" /></td><td>14,6 - 15,9</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_2_1593624.png" /></td><td>15,9 - 36,2</td></tr></table>': layer_Partdesjeunes1529ans_2,'Population (EPCI)<br /><table><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_3985112470.png" /></td><td>3985 - 11247</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_11247192241.png" /></td><td>11247 - 19224</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_19224284022.png" /></td><td>19224 - 28402</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_28402535123.png" /></td><td>28402 - 53512</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_5351271363534.png" /></td><td>53512 - 7136353</td></tr></table>': layer_PopulationEPCI_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Rgions_15.png" /> Régions': layer_Rgions_15,'<img src="legend/BanquesAlimentaires_14.png" /> Banques Alimentaires': layer_BanquesAlimentaires_14,'<img src="legend/AntennesdesBanquesAlimentaires_13.png" /> Antennes des Banques Alimentaires': layer_AntennesdesBanquesAlimentaires_13,'ES étudiantes partenaires BA<br /><table><tr><td style="text-align: center;"><img src="legend/EStudiantespartenairesBA_12_ESOPE0.png" /></td><td>ESOPE</td></tr><tr><td style="text-align: center;"><img src="legend/EStudiantespartenairesBA_12_AGORAE1.png" /></td><td>AGORAE</td></tr><tr><td style="text-align: center;"><img src="legend/EStudiantespartenairesBA_12_AutreES2.png" /></td><td>Autre ES</td></tr></table>': layer_EStudiantespartenairesBA_12,'<img src="legend/ESpartenairesBA_11.png" /> ES partenaires BA ': layer_ESpartenairesBA_11,'<img src="legend/ESANDES_10.png" /> ES ANDES': layer_ESANDES_10,'<img src="legend/ESUGESS_9.png" /> ES UGESS': layer_ESUGESS_9,'Taux de pauvreté (Département)<br /><table><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_8_891190.png" /></td><td>8,9 - 11,9</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_8_1191321.png" /></td><td>11,9 - 13,2</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_8_1321492.png" /></td><td>13,2 - 14,9</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_8_1491663.png" /></td><td>14,9 - 16,6</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_8_1663564.png" /></td><td>16,6 - 35,6</td></tr></table>': layer_TauxdepauvretDpartement_8,'<img src="legend/Tauxdepauvretdesjeunes25_7.png" /> Taux de pauvreté des jeunes > 25%': layer_Tauxdepauvretdesjeunes25_7,'<img src="legend/Plusde25dejeunes1529ans_6.png" /> Plus de 25 % de jeunes (15-29 ans)': layer_Plusde25dejeunes1529ans_6,'Part des jeunes 15-29 ans <br /><table><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_5_891220.png" /></td><td>8,9 - 12,2</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_5_1221351.png" /></td><td>12,2 - 13,5</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_5_1351462.png" /></td><td>13,5 - 14,6</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_5_1461593.png" /></td><td>14,6 - 15,9</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_5_1593624.png" /></td><td>15,9 - 36,2</td></tr></table>': layer_Partdesjeunes1529ans_5,'Part des jeunes (Guadeloupe)<br /><table><tr><td style="text-align: center;"><img src="legend/PartdesjeunesGuadeloupe_4_1461590.png" /></td><td>14,6 - 15,9</td></tr><tr><td style="text-align: center;"><img src="legend/PartdesjeunesGuadeloupe_4_1593621.png" /></td><td>15,9 - 36,2</td></tr></table>': layer_PartdesjeunesGuadeloupe_4,'Part des jeunes (Martinique)<br /><table><tr><td style="text-align: center;"><img src="legend/PartdesjeunesMartinique_3_1461590.png" /></td><td>14,6 - 15,9</td></tr><tr><td style="text-align: center;"><img src="legend/PartdesjeunesMartinique_3_1593621.png" /></td><td>15,9 - 36,2</td></tr></table>': layer_PartdesjeunesMartinique_3,'Part des jeunes (Réunion)<br /><table><tr><td style="text-align: center;"><img src="legend/PartdesjeunesRunion_2_1593620.png" /></td><td>15,9 - 36,2</td></tr></table>': layer_PartdesjeunesRunion_2,'Population (EPCI)<br /><table><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_3985112470.png" /></td><td>3985 - 11247</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_11247192241.png" /></td><td>11247 - 19224</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_19224284022.png" /></td><td>19224 - 28402</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_28402535123.png" /></td><td>28402 - 53512</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_5351271363534.png" /></td><td>53512 - 7136353</td></tr></table>': layer_PopulationEPCI_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
         setBounds();
-        resetLabels([layer_Plusde25dejeunes1529ans_3]);
+        resetLabels([layer_Plusde25dejeunes1529ans_6]);
         map.on("zoomend", function(){
-            resetLabels([layer_Plusde25dejeunes1529ans_3]);
+            resetLabels([layer_Plusde25dejeunes1529ans_6]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Plusde25dejeunes1529ans_3]);
+            resetLabels([layer_Plusde25dejeunes1529ans_6]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Plusde25dejeunes1529ans_3]);
+            resetLabels([layer_Plusde25dejeunes1529ans_6]);
         });
         </script>
     </body>
