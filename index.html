@@ -33,9 +33,9 @@
         <script src="js/labels.js"></script>
         <script src="data/PopulationEPCI_1.js"></script>
         <script src="data/Partdesjeunes1529ans_2.js"></script>
-        <script src="data/Tauxdepauvretdesjeunes25_3.js"></script>
-        <script src="data/TauxdepauvretDpartement_4.js"></script>
-        <script src="data/Plusde25dejeunes1529ans_5.js"></script>
+        <script src="data/Plusde25dejeunes1529ans_3.js"></script>
+        <script src="data/Tauxdepauvretdesjeunes25_4.js"></script>
+        <script src="data/TauxdepauvretDpartement_5.js"></script>
         <script src="data/ESUGESS_6.js"></script>
         <script src="data/ESANDES_7.js"></script>
         <script src="data/ESpartenairesBA_8.js"></script>
@@ -46,7 +46,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[41.74069485050691,-7.6676490431132],[51.01883214295782,16.41819597482968]]);
+        }).fitBounds([[42.02739350566075,-8.971657269570171],[51.19148008285835,14.763196951051244]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -288,155 +288,7 @@
             style: style_Partdesjeunes1529ans_2_0,
         });
         bounds_group.addLayer(layer_Partdesjeunes1529ans_2);
-        function pop_Tauxdepauvretdesjeunes25_3(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2"><strong>Région</strong><br />' + (feature.properties['NOM_REGION'] !== null ? autolinker.link(feature.properties['NOM_REGION'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>EPCI</strong><br />' + (feature.properties['SOCIALE'] !== null ? autolinker.link(feature.properties['SOCIALE'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Département</strong><br />' + (feature.properties['Départeme'] !== null ? autolinker.link(feature.properties['Départeme'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Taux de pauvreté des jeunes en % (- 30 ans)</strong><br />' + (feature.properties['Taux de _2'] !== null ? autolinker.link(feature.properties['Taux de _2'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_Tauxdepauvretdesjeunes25_3_0() {
-            return {
-                pane: 'pane_Tauxdepauvretdesjeunes25_3',
-                opacity: 1,
-                color: 'rgba(70,8,73,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(70,8,73,1.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Tauxdepauvretdesjeunes25_3');
-        map.getPane('pane_Tauxdepauvretdesjeunes25_3').style.zIndex = 403;
-        map.getPane('pane_Tauxdepauvretdesjeunes25_3').style['mix-blend-mode'] = 'normal';
-        var layer_Tauxdepauvretdesjeunes25_3 = new L.geoJson(json_Tauxdepauvretdesjeunes25_3, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Tauxdepauvretdesjeunes25_3',
-            layerName: 'layer_Tauxdepauvretdesjeunes25_3',
-            pane: 'pane_Tauxdepauvretdesjeunes25_3',
-            onEachFeature: pop_Tauxdepauvretdesjeunes25_3,
-            style: style_Tauxdepauvretdesjeunes25_3_0,
-        });
-        bounds_group.addLayer(layer_Tauxdepauvretdesjeunes25_3);
-        function pop_TauxdepauvretDpartement_4(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2"><strong>Département </strong><br />' + (feature.properties['libgeo'] !== null ? autolinker.link(feature.properties['libgeo'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Taux de pauvreté en % (2020)</strong><br />' + (feature.properties['Taux de pa'] !== null ? autolinker.link(feature.properties['Taux de pa'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_TauxdepauvretDpartement_4_0(feature) {
-            if (feature.properties['Taux de pa'] >= 8.900000 && feature.properties['Taux de pa'] <= 11.900000 ) {
-                return {
-                pane: 'pane_TauxdepauvretDpartement_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.9)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(252,251,253,0.9)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['Taux de pa'] >= 11.900000 && feature.properties['Taux de pa'] <= 13.200000 ) {
-                return {
-                pane: 'pane_TauxdepauvretDpartement_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.9)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(220,219,236,0.9)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['Taux de pa'] >= 13.200000 && feature.properties['Taux de pa'] <= 14.900000 ) {
-                return {
-                pane: 'pane_TauxdepauvretDpartement_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.9)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(163,159,203,0.9)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['Taux de pa'] >= 14.900000 && feature.properties['Taux de pa'] <= 16.600000 ) {
-                return {
-                pane: 'pane_TauxdepauvretDpartement_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.9)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(106,81,163,0.9)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['Taux de pa'] >= 16.600000 && feature.properties['Taux de pa'] <= 35.600000 ) {
-                return {
-                pane: 'pane_TauxdepauvretDpartement_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.9)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(63,0,125,0.9)',
-                interactive: true,
-            }
-            }
-        }
-        map.createPane('pane_TauxdepauvretDpartement_4');
-        map.getPane('pane_TauxdepauvretDpartement_4').style.zIndex = 404;
-        map.getPane('pane_TauxdepauvretDpartement_4').style['mix-blend-mode'] = 'normal';
-        var layer_TauxdepauvretDpartement_4 = new L.geoJson(json_TauxdepauvretDpartement_4, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_TauxdepauvretDpartement_4',
-            layerName: 'layer_TauxdepauvretDpartement_4',
-            pane: 'pane_TauxdepauvretDpartement_4',
-            onEachFeature: pop_TauxdepauvretDpartement_4,
-            style: style_TauxdepauvretDpartement_4_0,
-        });
-        bounds_group.addLayer(layer_TauxdepauvretDpartement_4);
-        function pop_Plusde25dejeunes1529ans_5(feature, layer) {
+        function pop_Plusde25dejeunes1529ans_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>DEPARTMENT</strong><br />' + (feature.properties['NOM_DEPT'] !== null ? autolinker.link(feature.properties['NOM_DEPT'].toLocaleString()) : '') + '</td>\
@@ -457,9 +309,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Plusde25dejeunes1529ans_5_0() {
+        function style_Plusde25dejeunes1529ans_3_0() {
             return {
-                pane: 'pane_Plusde25dejeunes1529ans_5',
+                pane: 'pane_Plusde25dejeunes1529ans_3',
                 opacity: 1,
                 color: 'rgba(228,26,28,1.0)',
                 dashArray: '',
@@ -470,19 +322,167 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Plusde25dejeunes1529ans_5');
-        map.getPane('pane_Plusde25dejeunes1529ans_5').style.zIndex = 405;
-        map.getPane('pane_Plusde25dejeunes1529ans_5').style['mix-blend-mode'] = 'normal';
-        var layer_Plusde25dejeunes1529ans_5 = new L.geoJson(json_Plusde25dejeunes1529ans_5, {
+        map.createPane('pane_Plusde25dejeunes1529ans_3');
+        map.getPane('pane_Plusde25dejeunes1529ans_3').style.zIndex = 403;
+        map.getPane('pane_Plusde25dejeunes1529ans_3').style['mix-blend-mode'] = 'normal';
+        var layer_Plusde25dejeunes1529ans_3 = new L.geoJson(json_Plusde25dejeunes1529ans_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Plusde25dejeunes1529ans_5',
-            layerName: 'layer_Plusde25dejeunes1529ans_5',
-            pane: 'pane_Plusde25dejeunes1529ans_5',
-            onEachFeature: pop_Plusde25dejeunes1529ans_5,
-            style: style_Plusde25dejeunes1529ans_5_0,
+            dataVar: 'json_Plusde25dejeunes1529ans_3',
+            layerName: 'layer_Plusde25dejeunes1529ans_3',
+            pane: 'pane_Plusde25dejeunes1529ans_3',
+            onEachFeature: pop_Plusde25dejeunes1529ans_3,
+            style: style_Plusde25dejeunes1529ans_3_0,
         });
-        bounds_group.addLayer(layer_Plusde25dejeunes1529ans_5);
+        bounds_group.addLayer(layer_Plusde25dejeunes1529ans_3);
+        function pop_Tauxdepauvretdesjeunes25_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Région</strong><br />' + (feature.properties['NOM_REGION'] !== null ? autolinker.link(feature.properties['NOM_REGION'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>EPCI</strong><br />' + (feature.properties['SOCIALE'] !== null ? autolinker.link(feature.properties['SOCIALE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Département</strong><br />' + (feature.properties['Départeme'] !== null ? autolinker.link(feature.properties['Départeme'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Taux de pauvreté des jeunes en % (- 30 ans)</strong><br />' + (feature.properties['Taux de _2'] !== null ? autolinker.link(feature.properties['Taux de _2'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Tauxdepauvretdesjeunes25_4_0() {
+            return {
+                pane: 'pane_Tauxdepauvretdesjeunes25_4',
+                opacity: 1,
+                color: 'rgba(70,8,73,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(70,8,73,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Tauxdepauvretdesjeunes25_4');
+        map.getPane('pane_Tauxdepauvretdesjeunes25_4').style.zIndex = 404;
+        map.getPane('pane_Tauxdepauvretdesjeunes25_4').style['mix-blend-mode'] = 'normal';
+        var layer_Tauxdepauvretdesjeunes25_4 = new L.geoJson(json_Tauxdepauvretdesjeunes25_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Tauxdepauvretdesjeunes25_4',
+            layerName: 'layer_Tauxdepauvretdesjeunes25_4',
+            pane: 'pane_Tauxdepauvretdesjeunes25_4',
+            onEachFeature: pop_Tauxdepauvretdesjeunes25_4,
+            style: style_Tauxdepauvretdesjeunes25_4_0,
+        });
+        bounds_group.addLayer(layer_Tauxdepauvretdesjeunes25_4);
+        function pop_TauxdepauvretDpartement_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Département </strong><br />' + (feature.properties['libgeo'] !== null ? autolinker.link(feature.properties['libgeo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Taux de pauvreté en % (2020)</strong><br />' + (feature.properties['Taux de pa'] !== null ? autolinker.link(feature.properties['Taux de pa'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_TauxdepauvretDpartement_5_0(feature) {
+            if (feature.properties['Taux de pa'] >= 8.900000 && feature.properties['Taux de pa'] <= 11.900000 ) {
+                return {
+                pane: 'pane_TauxdepauvretDpartement_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.9)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,251,253,0.9)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Taux de pa'] >= 11.900000 && feature.properties['Taux de pa'] <= 13.200000 ) {
+                return {
+                pane: 'pane_TauxdepauvretDpartement_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.9)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(220,219,236,0.9)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Taux de pa'] >= 13.200000 && feature.properties['Taux de pa'] <= 14.900000 ) {
+                return {
+                pane: 'pane_TauxdepauvretDpartement_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.9)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(163,159,203,0.9)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Taux de pa'] >= 14.900000 && feature.properties['Taux de pa'] <= 16.600000 ) {
+                return {
+                pane: 'pane_TauxdepauvretDpartement_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.9)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(106,81,163,0.9)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Taux de pa'] >= 16.600000 && feature.properties['Taux de pa'] <= 35.600000 ) {
+                return {
+                pane: 'pane_TauxdepauvretDpartement_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.9)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(63,0,125,0.9)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_TauxdepauvretDpartement_5');
+        map.getPane('pane_TauxdepauvretDpartement_5').style.zIndex = 405;
+        map.getPane('pane_TauxdepauvretDpartement_5').style['mix-blend-mode'] = 'normal';
+        var layer_TauxdepauvretDpartement_5 = new L.geoJson(json_TauxdepauvretDpartement_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_TauxdepauvretDpartement_5',
+            layerName: 'layer_TauxdepauvretDpartement_5',
+            pane: 'pane_TauxdepauvretDpartement_5',
+            onEachFeature: pop_TauxdepauvretDpartement_5,
+            style: style_TauxdepauvretDpartement_5_0,
+        });
+        bounds_group.addLayer(layer_TauxdepauvretDpartement_5);
         function pop_ESUGESS_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -635,7 +635,7 @@
         function style_ESpartenairesBA_8_0() {
             return {
                 pane: 'pane_ESpartenairesBA_8',
-                radius: 4.6000000000000005,
+                radius: 4.6,
                 opacity: 1,
                 color: 'rgba(11,4,5,1.0)',
                 dashArray: '',
@@ -930,17 +930,17 @@
         bounds_group.addLayer(layer_Rgions_12);
         map.addLayer(layer_Rgions_12);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Rgions_12.png" /> Régions': layer_Rgions_12,'<img src="legend/BanquesAlimentaires_11.png" /> Banques Alimentaires': layer_BanquesAlimentaires_11,'<img src="legend/AntennesdesBanquesAlimentaires_10.png" /> Antennes des Banques Alimentaires': layer_AntennesdesBanquesAlimentaires_10,'ES étudiantes partenaires BA<br /><table><tr><td style="text-align: center;"><img src="legend/EStudiantespartenairesBA_9_ESOPE0.png" /></td><td>ESOPE</td></tr><tr><td style="text-align: center;"><img src="legend/EStudiantespartenairesBA_9_AGORAE1.png" /></td><td>AGORAE</td></tr><tr><td style="text-align: center;"><img src="legend/EStudiantespartenairesBA_9_AutreES2.png" /></td><td>Autre ES</td></tr></table>': layer_EStudiantespartenairesBA_9,'<img src="legend/ESpartenairesBA_8.png" /> ES partenaires BA ': layer_ESpartenairesBA_8,'<img src="legend/ESANDES_7.png" /> ES ANDES': layer_ESANDES_7,'<img src="legend/ESUGESS_6.png" /> ES UGESS': layer_ESUGESS_6,'<img src="legend/Plusde25dejeunes1529ans_5.png" /> Plus de 25 % de jeunes (15-29 ans)': layer_Plusde25dejeunes1529ans_5,'Taux de pauvreté (Département)<br /><table><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_4_891190.png" /></td><td>8,9 - 11,9</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_4_1191321.png" /></td><td>11,9 - 13,2</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_4_1321492.png" /></td><td>13,2 - 14,9</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_4_1491663.png" /></td><td>14,9 - 16,6</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_4_1663564.png" /></td><td>16,6 - 35,6</td></tr></table>': layer_TauxdepauvretDpartement_4,'<img src="legend/Tauxdepauvretdesjeunes25_3.png" /> Taux de pauvreté des jeunes > 25%': layer_Tauxdepauvretdesjeunes25_3,'Part des jeunes 15-29 ans <br /><table><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_2_891220.png" /></td><td>8,9 - 12,2</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_2_1221351.png" /></td><td>12,2 - 13,5</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_2_1351462.png" /></td><td>13,5 - 14,6</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_2_1461593.png" /></td><td>14,6 - 15,9</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_2_1593624.png" /></td><td>15,9 - 36,2</td></tr></table>': layer_Partdesjeunes1529ans_2,'Population (EPCI)<br /><table><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_3985112470.png" /></td><td>3985 - 11247</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_11247192241.png" /></td><td>11247 - 19224</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_19224284022.png" /></td><td>19224 - 28402</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_28402535123.png" /></td><td>28402 - 53512</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_5351271363534.png" /></td><td>53512 - 7136353</td></tr></table>': layer_PopulationEPCI_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Rgions_12.png" /> Régions': layer_Rgions_12,'<img src="legend/BanquesAlimentaires_11.png" /> Banques Alimentaires': layer_BanquesAlimentaires_11,'<img src="legend/AntennesdesBanquesAlimentaires_10.png" /> Antennes des Banques Alimentaires': layer_AntennesdesBanquesAlimentaires_10,'ES étudiantes partenaires BA<br /><table><tr><td style="text-align: center;"><img src="legend/EStudiantespartenairesBA_9_ESOPE0.png" /></td><td>ESOPE</td></tr><tr><td style="text-align: center;"><img src="legend/EStudiantespartenairesBA_9_AGORAE1.png" /></td><td>AGORAE</td></tr><tr><td style="text-align: center;"><img src="legend/EStudiantespartenairesBA_9_AutreES2.png" /></td><td>Autre ES</td></tr></table>': layer_EStudiantespartenairesBA_9,'<img src="legend/ESpartenairesBA_8.png" /> ES partenaires BA ': layer_ESpartenairesBA_8,'<img src="legend/ESANDES_7.png" /> ES ANDES': layer_ESANDES_7,'<img src="legend/ESUGESS_6.png" /> ES UGESS': layer_ESUGESS_6,'Taux de pauvreté (Département)<br /><table><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_5_891190.png" /></td><td>8,9 - 11,9</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_5_1191321.png" /></td><td>11,9 - 13,2</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_5_1321492.png" /></td><td>13,2 - 14,9</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_5_1491663.png" /></td><td>14,9 - 16,6</td></tr><tr><td style="text-align: center;"><img src="legend/TauxdepauvretDpartement_5_1663564.png" /></td><td>16,6 - 35,6</td></tr></table>': layer_TauxdepauvretDpartement_5,'<img src="legend/Tauxdepauvretdesjeunes25_4.png" /> Taux de pauvreté des jeunes > 25%': layer_Tauxdepauvretdesjeunes25_4,'<img src="legend/Plusde25dejeunes1529ans_3.png" /> Plus de 25 % de jeunes (15-29 ans)': layer_Plusde25dejeunes1529ans_3,'Part des jeunes 15-29 ans <br /><table><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_2_891220.png" /></td><td>8,9 - 12,2</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_2_1221351.png" /></td><td>12,2 - 13,5</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_2_1351462.png" /></td><td>13,5 - 14,6</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_2_1461593.png" /></td><td>14,6 - 15,9</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesjeunes1529ans_2_1593624.png" /></td><td>15,9 - 36,2</td></tr></table>': layer_Partdesjeunes1529ans_2,'Population (EPCI)<br /><table><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_3985112470.png" /></td><td>3985 - 11247</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_11247192241.png" /></td><td>11247 - 19224</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_19224284022.png" /></td><td>19224 - 28402</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_28402535123.png" /></td><td>28402 - 53512</td></tr><tr><td style="text-align: center;"><img src="legend/PopulationEPCI_1_5351271363534.png" /></td><td>53512 - 7136353</td></tr></table>': layer_PopulationEPCI_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
         setBounds();
-        resetLabels([layer_Plusde25dejeunes1529ans_5]);
+        resetLabels([layer_Plusde25dejeunes1529ans_3]);
         map.on("zoomend", function(){
-            resetLabels([layer_Plusde25dejeunes1529ans_5]);
+            resetLabels([layer_Plusde25dejeunes1529ans_3]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Plusde25dejeunes1529ans_5]);
+            resetLabels([layer_Plusde25dejeunes1529ans_3]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Plusde25dejeunes1529ans_5]);
+            resetLabels([layer_Plusde25dejeunes1529ans_3]);
         });
         </script>
     </body>
